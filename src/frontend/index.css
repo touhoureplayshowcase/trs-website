@@ -66,7 +66,11 @@ h2 {
   font-size: 36px;
 }
 
-a:visited:not(.replay):not(.i):not(.dropdown_button) {
+a {
+  color: #8d98ffff;
+}
+
+a:visited {
   color: #ff69b4;
 }
 
