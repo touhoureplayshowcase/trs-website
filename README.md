@@ -1,0 +1,1 @@
+Website hosted at https://touhoureplayshowcase.com - Better readme to follow soon. Maybe.
