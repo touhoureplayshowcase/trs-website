@@ -1,6 +1,65 @@
+@import url('icons.css');
+
 @font-face {
   font-family: Felipa;
   src: url(assets/Felipa-Regular.woff2);
+}
+
+html {
+  font: 14px verdana, sans-serif;
+  font-size: 14px;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0.2rem;
+  background-color: #202020;
+  border-bottom: 1px solid white;
+}
+
+.header_link {
+  margin-left: 1vw;
+  margin-right: 1vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  margin-right: 0.1vw;
+}
+
+main {
+  flex: 1;
+  overflow-y: auto;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+  text-align: right;
+  background-color: #202020;
+  padding: 0.2rem;
+  border-left: 1px solid white;
+  border-top: 1px solid white;
 }
 
 body {
@@ -15,8 +74,6 @@ body {
   opacity: .8;
   border: 1px solid #000;
   text-align: left;
-  font: 14px verdana, sans-serif;
-  font-size: 14px;
 }
 
 @media only screen and (min-width: 1000px) {
@@ -49,7 +106,7 @@ h1, h2, h3, h4, label, li, p, figcaption, dt, #nav, #hy_text {
 
 h1 {
   font-family: Felipa;
-  font-size: 48px;
+  font-size: 3rem;
   clear: both;
 }
 
@@ -63,7 +120,7 @@ p {
 
 h2 {
   font-family: Felipa;
-  font-size: 36px;
+  font-size: 2.5rem;
 }
 
 a {
@@ -72,39 +129,4 @@ a {
 
 a:visited {
   color: #ff69b4;
-}
-
-.icon {
-  background-image: url(assets/icon_sheet.png);
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-}
-
-.twitch_icon {
-  background-position: -448px 0;
-}
-
-.discord_icon {
-  background-position: -240px 0;
-}
-
-.twitter_icon {
-  background-position: -464px 0;
-}
-
-.forms_icon {
-  background-position: -800px 0;
-}
-
-.sheets_icon {
-  background-position: -400px 0;
-}
-
-.ss_icon {
-  background-position: -1200px 0;
-}
-
-.lunarcast_icon {
-  background-position: -320px 0;
 }
