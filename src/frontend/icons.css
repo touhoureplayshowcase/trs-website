@@ -1,0 +1,30 @@
+.icon {
+  background-image: url(assets/icon_sheet.png);
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}
+
+.twitch_icon {
+  background-position: -448px 0;
+}
+
+.discord_icon {
+  background-position: -240px 0;
+}
+
+.forms_icon {
+  background-position: -800px 0;
+}
+
+.sheets_icon {
+  background-position: -400px 0;
+}
+
+.ss_icon {
+  background-position: -1200px 0;
+}
+
+.lunarcast_icon {
+  background-position: -320px 0;
+}
