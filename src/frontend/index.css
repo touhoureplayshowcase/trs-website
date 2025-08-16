@@ -33,6 +33,10 @@ header {
   border-bottom: 1px solid white;
 }
 
+header > div {
+  display: inline;
+}
+
 .header_link {
   margin-left: 1vw;
   margin-right: 1vw;
