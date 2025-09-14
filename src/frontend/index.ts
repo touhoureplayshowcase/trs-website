@@ -9,7 +9,17 @@ addEventListener('DOMContentLoaded', () => {
   elements.forEach(e => e.remove())
   elements.forEach(e => document.querySelector('.upcoming')?.appendChild(e))
   elements.forEach(insertLocalTime)
+  document.getElementById('google-button')?.addEventListener('click', loadGoogleSchedule)
 })
+
+function loadGoogleSchedule (this: HTMLButtonElement): void {
+  this.remove()
+  const iframe = document.getElementById('google-iframe') as HTMLIFrameElement
+  iframe.src = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRHZ4i4isU2KENd95wQjiZaoBGw1hELbL6IQVGom3G9KMyrF6clnV_ILlYvMs1yvCYui2-a49yUCGYX/pubhtml?gid=1058542272&single=true'
+  for (const elem of [iframe, iframe.parentElement as HTMLElement]) {
+    elem.style.display = 'block'
+  }
+}
 
 function getTime (element: Element): number {
   const now = new Date()
