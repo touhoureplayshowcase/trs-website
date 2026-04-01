@@ -3,9 +3,11 @@
 ---
 
 <div class="upcoming" id="upcoming-container">
-  <p data-day="5" data-hour="19">Saturday, 9pm CEST, every week</p>
+  <p data-day="5" data-hour="19" data-interval="2" data-anchor="2026-04-03">
+    Friday, 9pm CEST, every second week
+  </p>
   <p data-day="6" data-hour="19">Saturday, 9pm CEST, every week</p>
-  <p data-day="0" data-hour="14">Sunday, 4pm CEST every week</p>
+  <p data-day="0" data-hour="14">Sunday, 4pm CEST, every week</p>
 </div>
 
 <script>
@@ -18,6 +20,8 @@
     const now = new Date();
     const day = parseInt(element.getAttribute("data-day") ?? "0", 10);
     const hour = parseInt(element.getAttribute("data-hour") ?? "0", 10);
+    const interval = parseInt(element.getAttribute("data-interval") ?? "1", 10);
+    const anchorStr = element.getAttribute("data-anchor");
 
     const resultDate = new Date();
     resultDate.setUTCHours(hour, 0, 0, 0);
@@ -29,6 +33,30 @@
     if (resultDate.getTime() < now.getTime()) {
       resultDate.setUTCDate(resultDate.getUTCDate() + 7);
     }
+
+    if (interval > 1 && anchorStr) {
+      const anchorDate = new Date(anchorStr);
+      const diffMs =
+        Date.UTC(
+          resultDate.getUTCFullYear(),
+          resultDate.getUTCMonth(),
+          resultDate.getUTCDate(),
+        ) -
+        Date.UTC(
+          anchorDate.getUTCFullYear(),
+          anchorDate.getUTCMonth(),
+          anchorDate.getUTCDate(),
+        );
+      const daysDiff = Math.round(diffMs / (1000 * 60 * 60 * 24));
+      const weeksDiff = daysDiff / 7;
+      const remainder = Math.abs(weeksDiff) % interval;
+      if (remainder !== 0) {
+        resultDate.setUTCDate(
+          resultDate.getUTCDate() + 7 * (interval - remainder),
+        );
+      }
+    }
+
     return resultDate.getTime();
   }
 
