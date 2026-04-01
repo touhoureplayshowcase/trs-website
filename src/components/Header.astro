@@ -1,0 +1,124 @@
+---
+import ExternalLink from "./ExternalLink.astro";
+---
+
+<header class="site-header">
+  <div class="header-content">
+    <a href="/" class="logo-container" aria-label="Home">
+      <img
+        src="/static/logo_horizontal.png"
+        alt="Touhou Replay Showcase"
+        class="logo-img"
+      />
+    </a>
+    <nav class="nav-links">
+      <ExternalLink
+        href="https://twitch.tv/touhou_replay_showcase"
+        icon="twitch"
+        text="Twitch"
+      />
+      <ExternalLink
+        href="https://discord.gg/xU3utzg"
+        icon="discord"
+        text="Discord"
+      />
+      <ExternalLink
+        href="https://forms.gle/nvpn2rcbmCvN6WZHA"
+        icon="forms"
+        text="Submit"
+      />
+      <ExternalLink
+        href="https://docs.google.com/spreadsheets/d/1YJ644DfyjU02ECytPoySlz4FMWwoiJQMZEJxlChz7I0/edit?usp=sharing"
+        icon="sheets"
+        text="Queue"
+      />
+      <a class="legal-link" href="/legal">Impressum / Datenschutz</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(18, 18, 22, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+  }
+
+  .logo-container:hover {
+    transform: scale(1.05);
+  }
+
+  .logo-img {
+    max-height: 30px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .legal-link {
+    color: #a0a0b0;
+    font-size: 0.85rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding-left: 1rem;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    transition: color 0.2s;
+  }
+
+  .legal-link:hover {
+    color: #ffffff;
+  }
+
+  @media only screen and (max-width: 800px) {
+    .header-content {
+      flex-direction: column;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .nav-links {
+      justify-content: center;
+      gap: 1rem;
+    }
+    .logo-img {
+      max-height: 40px;
+    }
+    .legal-link {
+      padding-left: 0;
+      border-left: none;
+      width: 100%;
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+  }
+</style>

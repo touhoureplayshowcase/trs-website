@@ -1,0 +1,225 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Section from "../components/Section.astro";
+import UpcomingStreams from "../components/UpcomingStreams.astro";
+import ScheduleViewer from "../components/ScheduleViewer.astro";
+import ExternalLink from "../components/ExternalLink.astro";
+---
+
+<Layout title="Touhou Replay Showcase">
+	<Header />
+	<main class="page-container">
+		<section class="hero-card">
+			<h1 class="main-title">Touhou Replay Showcase</h1>
+			<div class="intro-text">
+				<p>
+					Touhou Replay Showcase is a bi-weekly community stream broadcast on
+					<ExternalLink
+						href="https://twitch.tv/touhou_replay_showcase"
+						icon="twitch"
+						text="Twitch"
+					/>
+					every weekend. During high submission volumes, we also host on Fridays.
+				</p>
+				<p>
+					Players can submit their Touhou replays to the stream, which will be
+					showcased and commentated on during a future broadcast. Any skill
+					level or category is accepted. Currently, the stream is managed by
+					<ExternalLink href="https://twitch.com/Gastari" text="Gastari" />.
+				</p>
+			</div>
+		</section>
+
+		<Section title="Upcoming Streams">
+			<UpcomingStreams />
+		</Section>
+
+		<Section title="Schedule">
+			<ScheduleViewer />
+		</Section>
+
+		<Section title="Submission Rules">
+			<p>
+				<strong>Submission Limit: ONE run per player per month.</strong>
+				This limit is per calendar month. Regardless of when you submit in a given
+				month, you may submit again on the 1st of the next month.
+			</p>
+			<p>
+				Submitted runs will be shown during one of the streams. Depending on the
+				queue size, it may take up to a month to get your run showcased.
+			</p>
+			<p>
+				Any kind of run from the official shoot 'em up games, fan-made games, or
+				Seihou is allowed—including Game Overs! Bonus points if you keep the
+				clear status a secret. If you need to replace your run, please ask in
+				the <em>#trs-inquires</em> channel on the Community Discord, specifying the
+				new run details and your current row in the queue.
+			</p>
+			<p>
+				<strong>Fast-Forwarding:</strong> For survival runs, we fast-forward through
+				the first three stages. For scoring runs, the entire run is shown at normal
+				speed. If you want specific parts shown at full speed, note it in the form.
+				For Pacifist runs, large parts will be fast-forwarded due to length. For scene
+				games, a batch of at most 5 replays may be submitted at once (preferably via
+				.zip).
+			</p>
+		</Section>
+
+		<div class="two-col-grid">
+			<Section title="How to Submit">
+				<p>
+					To send your replay to TRS, first upload it using a service like
+					<ExternalLink
+						href="https://www.silentselene.net/"
+						icon="ss"
+						text="Silent Selene"
+					/>
+					or <ExternalLink
+						href="http://replay.lunarcast.net/"
+						icon="lunarcast"
+						text="Lunarcast"
+					/>.
+				</p>
+				<p>
+					After uploading,
+					<ExternalLink
+						href="https://forms.gle/nvpn2rcbmCvN6WZHA"
+						icon="forms"
+						text="submit your replay here"
+					/>. All required fields are explained directly on the form.
+				</p>
+				<p>
+					Once submitted, you can check the
+					<ExternalLink
+						href="https://docs.google.com/spreadsheets/d/1YJ644DfyjU02ECytPoySlz4FMWwoiJQMZEJxlChz7I0/edit?usp=sharing"
+						icon="sheets"
+						text="Current Queue"
+					/>
+					to estimate when your run will be broadcast.
+				</p>
+			</Section>
+
+			<Section title="Contact">
+				<p>
+					The best way to reach the TRS team is via the <em>#trs-inquires</em> channel
+					on the
+					<ExternalLink
+						href="https://discord.gg/xU3utzg"
+						icon="discord"
+						text="Touhou Replay Community Discord"
+					/>.
+				</p>
+				<p>
+					For direct email inquiries, contact George at:
+					<ExternalLink
+						href="mailto:paul@schwandes.de"
+						text="paul@schwandes.de"
+					/>.
+				</p>
+			</Section>
+		</div>
+
+		<Section title="Credits">
+			<ul class="credits-list">
+				<li>
+					This site was originally made by <ExternalLink
+						href="https://maribelhearn.com/"
+						text="Maribel Hearn"
+					/>, who also ran the show from 2018-2019.
+				</li>
+				<li>
+					Touhou Replay Showcase was created by <ExternalLink
+						href="https://www.twitch.tv/satorikomeijist"
+						text="SatoriKomeijist"
+					/> in 2016.
+				</li>
+				<li>
+					Many logos, backgrounds, and assets were made by <ExternalLink
+						href="https://bsky.app/profile/sachisu.bsky.social"
+						text="Sachisu"
+					/>.
+				</li>
+			</ul>
+		</Section>
+	</main>
+	<Footer />
+</Layout>
+
+<style>
+	.page-container {
+		flex: 1;
+		width: 100%;
+		max-width: 1000px;
+		margin: 0 auto;
+		padding: 3rem 1.5rem;
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	.hero-card {
+		background: linear-gradient(
+			135deg,
+			rgba(30, 30, 40, 0.8) 0%,
+			rgba(20, 20, 26, 0.9) 100%
+		);
+		backdrop-filter: blur(16px);
+		border: 1px solid rgba(255, 255, 255, 0.15);
+		border-radius: 16px;
+		padding: 3.5rem 2.5rem;
+		text-align: center;
+		box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+	}
+
+	.main-title {
+		font-family: "Felipa", cursive;
+		font-size: 3.8rem;
+		color: #ffffff;
+		margin-top: 0;
+		margin-bottom: 1.5rem;
+		text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+	}
+
+	.intro-text {
+		font-size: 1.15rem;
+		max-width: 800px;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		color: #ebebeb;
+	}
+
+	.two-col-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 2rem;
+	}
+
+	p {
+		margin: 0;
+	}
+
+	.credits-list {
+		margin: 0;
+		padding-left: 1.5rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.8rem;
+	}
+
+	@media only screen and (max-width: 800px) {
+		.two-col-grid {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+		.main-title {
+			font-size: 2.8rem;
+		}
+		.hero-card {
+			padding: 2.5rem 1.5rem;
+		}
+	}
+</style>

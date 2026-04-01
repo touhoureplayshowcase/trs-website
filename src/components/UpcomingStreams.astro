@@ -1,0 +1,56 @@
+---
+
+---
+
+<div class="upcoming" id="upcoming-container">
+  <p data-day="5" data-hour="19">Saturday, 9pm CEST, every week</p>
+  <p data-day="6" data-hour="19">Saturday, 9pm CEST, every week</p>
+  <p data-day="0" data-hour="14">Sunday, 4pm CEST every week</p>
+</div>
+
+<script>
+  const formatter = new Intl.DateTimeFormat(navigator.language || "en-us", {
+    dateStyle: "full",
+    timeStyle: "full",
+  });
+
+  function getTime(element: HTMLElement): number {
+    const now = new Date();
+    const day = parseInt(element.getAttribute("data-day") ?? "0", 10);
+    const hour = parseInt(element.getAttribute("data-hour") ?? "0", 10);
+
+    const resultDate = new Date();
+    resultDate.setUTCHours(hour, 0, 0, 0);
+
+    const currentDayUTC = resultDate.getUTCDay();
+    const daysToAdd = (day - currentDayUTC + 7) % 7;
+    resultDate.setUTCDate(resultDate.getUTCDate() + daysToAdd);
+
+    if (resultDate.getTime() < now.getTime()) {
+      resultDate.setUTCDate(resultDate.getUTCDate() + 7);
+    }
+    return resultDate.getTime();
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById("upcoming-container");
+    if (!container) return;
+
+    const elements = Array.from(container.querySelectorAll("p"));
+    elements.sort((a, b) => getTime(a) - getTime(b));
+
+    elements.forEach((e) => {
+      e.textContent = formatter.format(getTime(e));
+      container.appendChild(e);
+    });
+  });
+</script>
+
+<style>
+  .upcoming {
+    margin: 10px;
+  }
+  p {
+    margin: 5px 0;
+  }
+</style>

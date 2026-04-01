@@ -1,0 +1,87 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { Content as LegalContent } from "../data/legal.md";
+---
+
+<Layout title="Impressum & Datenschutz - TRS">
+  <Header />
+  <main class="page-container">
+    <section class="glass-card legal-content">
+      <LegalContent />
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .page-container {
+    flex: 1;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .glass-card {
+    background-color: rgba(26, 26, 32, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 3rem 4rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    color: #e2e2e2;
+  }
+
+  .legal-content :global(h1),
+  .legal-content :global(h2) {
+    font-family: "Felipa", cursive;
+    text-align: left;
+    color: #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .legal-content :global(h1) {
+    font-size: 2.5rem;
+    margin-top: 0;
+  }
+
+  .legal-content :global(h2) {
+    font-size: 1.8rem;
+  }
+
+  .legal-content :global(p),
+  .legal-content :global(li) {
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .legal-content :global(a) {
+    color: #8d98ff;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .legal-content :global(a:hover) {
+    color: #ff69b4;
+    text-decoration: underline;
+  }
+
+  .legal-content :global(em) {
+    color: #a0a0b0;
+    font-size: 0.95em;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .glass-card {
+      padding: 2rem 1.5rem;
+    }
+  }
+</style>

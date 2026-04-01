@@ -1,0 +1,39 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="footer-content">
+    <p>
+      &copy; {year}
+      <a href="https://schwandes.de" target="_blank">Paul Schwandes</a>
+    </p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background-color: transparent;
+    padding: 2rem 1rem;
+    margin-top: auto;
+    text-align: center;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  p {
+    margin: 0;
+  }
+  a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  a:hover {
+    color: #ffffff;
+  }
+</style>

@@ -1,0 +1,152 @@
+---
+
+---
+
+<div id="schedule">
+  <button id="google-button" class="modern-btn">
+    <div class="btn-content">
+      <span class="btn-title">Load Schedule from Google Sheets</span>
+      <span class="btn-subtitle legal-text">
+        By clicking this button, you explicitly consent (Art. 6 para. 1 lit. a
+        GDPR) to loading external content from <strong
+          >Google Ireland Limited, Gordon House, Barrow Street, Dublin 4,
+          Ireland</strong
+        >. This action establishes a direct connection to Google's servers. Your
+        IP address, browser metadata, and device information will be
+        transmitted. Please be aware that your data may be transferred to Google
+        LLC in the USA, which is certified under the EU-US Data Privacy
+        Framework. Google may set cookies in your browser or use similar
+        technologies to process your data for its own analytics or tracking
+        purposes. This consent is voluntary and can be revoked at any time by
+        refreshing this page.
+      </span>
+    </div>
+  </button>
+
+  <div id="google-iframe-container" class="iframe-wrapper">
+    <iframe id="google-iframe" title="Stream Schedule"></iframe>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("google-button");
+    const container = document.getElementById("google-iframe-container");
+    const iframe = document.getElementById(
+      "google-iframe",
+    ) as HTMLIFrameElement;
+
+    if (btn && container && iframe) {
+      btn.addEventListener("click", () => {
+        btn.style.display = "none";
+        iframe.src =
+          "https://docs.google.com/spreadsheets/d/e/2PACX-1vRHZ4i4isU2KENd95wQjiZaoBGw1hELbL6IQVGom3G9KMyrF6clnV_ILlYvMs1yvCYui2-a49yUCGYX/pubhtml?gid=1058542272&single=true";
+        container.style.display = "block";
+      });
+    }
+  });
+</script>
+
+<style>
+  #schedule {
+    width: 100%;
+  }
+
+  .modern-btn {
+    width: 100%;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: linear-gradient(
+      145deg,
+      rgba(40, 40, 50, 0.7),
+      rgba(20, 20, 28, 0.8)
+    );
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+  }
+
+  .modern-btn:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(
+      145deg,
+      rgba(50, 50, 65, 0.9),
+      rgba(30, 30, 40, 1)
+    );
+    border-color: rgba(141, 152, 255, 0.5); /* Classic TRS Blue */
+    box-shadow: 0 8px 25px rgba(141, 152, 255, 0.2);
+  }
+
+  .modern-btn:active {
+    transform: translateY(1px);
+  }
+
+  .btn-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .btn-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #e2e2e2;
+    margin-bottom: 0.5rem;
+  }
+
+  .modern-btn:hover .btn-title {
+    color: #ffffff;
+  }
+
+  .legal-text {
+    font-size: 0.75rem;
+    color: #a0a0b0;
+    line-height: 1.5;
+    text-align: justify;
+    max-width: 800px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.15);
+    padding-top: 1rem;
+    margin-top: 0.2rem;
+    white-space: normal;
+  }
+
+  .legal-text strong {
+    color: #c0c0d0;
+  }
+
+  .iframe-wrapper {
+    display: none;
+    width: 100%;
+    height: 500px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.5s ease;
+  }
+
+  #google-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

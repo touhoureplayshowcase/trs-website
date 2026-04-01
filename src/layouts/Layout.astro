@@ -1,0 +1,86 @@
+---
+export interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta
+      name="description"
+      content="Touhou Replay Showcase is a bi-weekly livestream show featuring Touhou replays submitted by the community."
+    />
+    <meta
+      name="keywords"
+      content="touhou, touhou project, 東方, 东方, wrs, world records, lnns, lunatic"
+    />
+    <meta name="theme-color" content="#202020" />
+    <meta property="og:title" content={title} />
+    <meta property="og:url" content="https://touhoureplayshowcase.com/" />
+    <meta
+      property="og:description"
+      content="Touhou Replay Showcase, a show featuring replays submitted by the Touhou Project Community worldwide."
+    />
+    <link rel="icon" type="image/x-icon" href="/static/server_logo.png" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  @font-face {
+    font-family: "Felipa";
+    src: url("/fonts/Felipa-Regular.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: url("/static/trs_bg.jpg") center center / cover no-repeat fixed;
+    background-color: #1a1a1a;
+    color: rgb(235, 235, 235);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Felipa", cursive;
+    font-weight: normal;
+    text-align: center;
+    color: #ffffff;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+</style>

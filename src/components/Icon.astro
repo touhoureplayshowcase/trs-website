@@ -1,0 +1,38 @@
+---
+export interface Props {
+  name: "twitch" | "discord" | "forms" | "sheets" | "ss" | "lunarcast";
+}
+const { name } = Astro.props;
+---
+
+<span class={`icon ${name}`}></span>
+
+<style>
+  .icon {
+    background-image: url("/static/icon_sheet.png");
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: text-bottom;
+    flex-shrink: 0;
+    margin-right: 4px;
+  }
+  .twitch {
+    background-position: -448px 0;
+  }
+  .discord {
+    background-position: -240px 0;
+  }
+  .forms {
+    background-position: -800px 0;
+  }
+  .sheets {
+    background-position: -400px 0;
+  }
+  .ss {
+    background-position: -1200px 0;
+  }
+  .lunarcast {
+    background-position: -320px 0;
+  }
+</style>
