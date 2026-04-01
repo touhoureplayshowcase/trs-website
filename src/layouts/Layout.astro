@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import Background from "/public/static/trs_bg.jpg";
 export interface Props {
   title: string;
 }
@@ -29,6 +31,7 @@ const { title } = Astro.props;
     <link rel="icon" type="image/x-icon" href="/static/server_logo.png" />
   </head>
   <body>
+    <Image src={Background} alt="background" class="background" loading="lazy" quality="low"/>
     <slot />
   </body>
 </html>
@@ -65,10 +68,16 @@ const { title } = Astro.props;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background: url("/static/trs_bg.jpg") center center / cover no-repeat fixed;
     background-color: #1a1a1a;
     color: rgb(235, 235, 235);
     -webkit-font-smoothing: antialiased;
+  }
+
+  .background {
+    position: fixed;
+    z-index: -999;
+    inset: 0 0 0 0;
+    object-fit: cover;
   }
 
   h1,

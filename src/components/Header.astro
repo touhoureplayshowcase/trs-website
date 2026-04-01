@@ -1,14 +1,18 @@
 ---
+import { Image } from "astro:assets";
+import Logo from "/public/static/logo_horizontal.png"
 import ExternalLink from "./ExternalLink.astro";
 ---
 
 <header class="site-header">
   <div class="header-content">
     <a href="/" class="logo-container" aria-label="Home">
-      <img
-        src="/static/logo_horizontal.png"
+      <Image
+        src={Logo}
         alt="Touhou Replay Showcase"
         class="logo-img"
+        loading="lazy"
+        quality="low"
       />
     </a>
     <nav class="nav-links">
